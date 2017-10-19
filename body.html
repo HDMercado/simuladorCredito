@@ -1,0 +1,87 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Crédito de Consumo</h1>
+
+            <div class="container">
+                <form method="post" action="cuotas.php" id="formularioCredito">
+
+                    <div class="form-group row" id="divRut">
+                        <label for="rut" class="col-sm-4 col-form-label">RUT</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="rut" required oninput="validarRut(this)" placeholder="11.111.111-1">
+                            <div class="form-control-feedback" id="divMensajeRut"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row" id="divRenta">
+                        <label for="renta" class="col-sm-4 col-form-label">Renta</label>
+                        <div class="col-sm-8">
+                            <input type="number" required oninput="validarRenta(this)" class="form-control" name="renta" placeholder="1.000.000">
+                        </div>
+                    </div>
+
+                    <div class="form-group row" id="divMontoCredito">
+                        <label for="montoCredito" class="col-sm-4 col-form-label">Monto del crédito</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" name="montoCredito" required oninput="validarMontoCredito(this)" placeholder="1.000.000">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="cuotas" class="col-sm-4 col-form-label">Cantidad de cuotas</label>
+                        <div class="col-sm-8">
+                            <select class="custom-select form-control form-control-sm" id="cuotas" name="cuotas"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="primera-cuota" class="col-sm-4 col-form-label">Primera Cuota</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="date" value="2017-08-19" name="primera-cuota">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="meses-no-pago" class="col-sm-4 col-form-label">Meses de no pago</label>
+                        <div class="col-sm-8">
+                            <select  class="form-control" name="mesesNoPago[ ]" multiple onclick="validarMesesNoPago(this)">
+                                <option value="1">Enero</option>
+                                <option value="2">Febrero</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Mayo</option>
+                                <option value="6">Junio</option>
+                                <option value="7">Julio</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Simular</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<script type="text/javascript">
+
+    var opciones = document.getElementById('cuotas');
+    for(var i = 4; i  <= 60; i++){
+        var nuevoElemento = document.createElement('option');
+        nuevoElemento.value = i;
+        nuevoElemento.innerHTML = i;
+        opciones.appendChild(nuevoElemento);
+    }
+</script>
